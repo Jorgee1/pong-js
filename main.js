@@ -160,8 +160,8 @@ class Input
 
 
 
-var w =  30;
-var h = 120;
+var w =  20;
+var h = 100;
 var padding = 50
 
 var screen = new Screen('can');
@@ -249,11 +249,17 @@ function game_loop(){
         player.position.h/4,
         player.position.w
     );
-
-    player_middle_box = new Rect(
+    player_middle_top_box = new Rect(
         player.position.x,
         player.position.y + player.position.h/4,
-        player.position.h/2,
+        player.position.h/4,
+        player.position.w
+    );
+
+    player_middle_bottom_box = new Rect(
+        player.position.x,
+        player.position.y + player.position.h/2,
+        player.position.h/4,
         player.position.w
     );
 
@@ -272,12 +278,20 @@ function game_loop(){
         if (ball.speed.y > 0) { ball.speed.y *= -1.5; }
     }
     else if (
-        check_rect_colition(player_middle_box, ball.position) &&
+        check_rect_colition(player_middle_top_box, ball.position) &&
         (ball.speed.x < 0)
     )
     {
         ball.speed.x *= -1;
         if (ball.speed.y > 0) { ball.speed.y /= -1.5; }
+    }
+    else if (
+        check_rect_colition(player_middle_bottom_box, ball.position) &&
+        (ball.speed.x < 0)
+    )
+    {
+        ball.speed.x *= -1;
+        if (ball.speed.y < 0) { ball.speed.y /= -1.5; }
     }
     else if (
         check_rect_colition(player_bottom_box, ball.position) &&
