@@ -2,7 +2,7 @@
 
 Implementation of pong game in Javascript.
 
-![Alt Text]()
+![Alt Text](https://media.giphy.com/media/VEQmQVg2YR25fvfsp5/giphy.gif)
 
 # Instructions
 
