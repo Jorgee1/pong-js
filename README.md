@@ -7,5 +7,5 @@ Implementation of pong game in Javascript.
 # Instructions
 
 Movement:
-* Move up: W
+* move up: W
 * move down: S
